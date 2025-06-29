@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>auditIA - Auditoria de Chatbots com IA</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define a fonte Inter como padrão */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Efeito de gradiente de fundo sutil */
+        .gradient-bg {
+            background-color: #0c0a09; /* stone-950 */
+            background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.1) 0px, transparent 50%), 
+                              radial-gradient(at 97% 21%, hsla(140, 98%, 61%, 0.1) 0px, transparent 50%),
+                              radial-gradient(at 52% 99%, hsla(355, 98%, 61%, 0.1) 0px, transparent 50%),
+                              radial-gradient(at 10% 29%, hsla(256, 96%, 63%, 0.1) 0px, transparent 50%),
+                              radial-gradient(at 97% 96%, hsla(38, 60%, 72%, 0.1) 0px, transparent 50%),
+                              radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.1) 0px, transparent 50%),
+                              radial-gradient(at 79% 53%, hsla(343, 68%, 73%, 0.1) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="gradient-bg text-gray-200 antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-stone-950/80 backdrop-blur-sm border-b border-stone-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white">
+                audit<span class="text-sky-400">IA</span>
+            </h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#servicos" class="hover:text-sky-400 transition-colors">Serviços</a>
+                <a href="#processo" class="hover:text-sky-400 transition-colors">Processo</a>
+                <a href="#contato" class="hover:text-sky-400 transition-colors">Contato</a>
+            </nav>
+            <a href="#contato" class="hidden md:block bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-colors">
+                Solicitar Auditoria
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-900">
+            <a href="#servicos" class="block text-center py-3 px-6 hover:bg-stone-800 transition-colors">Serviços</a>
+            <a href="#processo" class="block text-center py-3 px-6 hover:bg-stone-800 transition-colors">Processo</a>
+            <a href="#contato" class="block text-center py-3 px-6 hover:bg-stone-800 transition-colors">Contato</a>
+            <div class="p-4">
+                 <a href="#contato" class="block w-full text-center bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-3 rounded-lg transition-colors">
+                    Solicitar Auditoria
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section id="home" class="text-center py-20 md:py-32 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                    Auditoria de <span class="text-sky-400">Performance</span> e <span class="text-sky-400">Segurança</span> para Chatbots com IA
+                </h2>
+                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-300">
+                    Otimize a experiência do seu cliente e proteja seus dados. Garantimos que seu chatbot no WhatsApp seja rápido, seguro e confiável.
+                </p>
+                <div class="mt-10">
+                    <a href="#contato" class="bg-sky-500 hover:bg-sky-600 text-white font-bold text-lg px-8 py-4 rounded-lg transition-transform duration-300 ease-in-out transform hover:scale-105">
+                        Receba uma Proposta
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicos" class="py-20 px-6 bg-stone-900/50">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">O que sua empresa ganha?</h3>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-400">Nossas auditorias são projetadas para identificar pontos críticos e oportunidades de melhoria.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-stone-900 p-8 rounded-xl border border-stone-800 hover:border-sky-500/50 transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-4">
+                             <div class="bg-sky-500/10 p-3 rounded-lg">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                             </div>
+                            <h4 class="text-2xl font-bold text-white">Auditoria de Performance</h4>
+                        </div>
+                        <p class="text-gray-300">Analisamos a velocidade de resposta, a eficiência do fluxo de conversa, o consumo de recursos e a capacidade do seu chatbot de escalar. Identificamos gargalos que frustram seus clientes e impactam seus resultados.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-stone-900 p-8 rounded-xl border border-stone-800 hover:border-sky-500/50 transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-teal-500/10 p-3 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.471a9 9 0 11-12.628 12.628A9 9 0 0118.382 7.529z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white">Auditoria de Segurança</h4>
+                        </div>
+                        <p class="text-gray-300">Verificamos vulnerabilidades, proteção de dados (LGPD), riscos de injeção de código e a robustez da autenticação. Proteja sua empresa e seus clientes contra ameaças e vazamento de informações sensíveis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="processo" class="py-20 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Nosso Processo Simplificado</h3>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-400">Trabalhamos de forma transparente e eficiente.</p>
+                </div>
+                <div class="relative">
+                    <!-- Linha do tempo -->
+                    <div class="hidden md:block absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-stone-700"></div>
+                    
+                    <!-- Item 1 -->
+                    <div class="md:flex items-center w-full mb-8">
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                             <div class="p-6 bg-stone-900 border border-stone-800 rounded-xl mb-4 md:mb-0">
+                                <h4 class="text-xl font-bold text-sky-400 mb-2">1. Contato e Definição de Escopo</h4>
+                                <p class="text-gray-300">Entendemos suas necessidades, o volume de usuários e as funcionalidades do seu chatbot para definir os objetivos da auditoria.</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex w-10 h-10 rounded-full bg-sky-500 items-center justify-center shrink-0 z-10">
+                             <span class="text-white font-bold">1</span>
+                        </div>
+                         <div class="md:w-1/2 md:pl-8"></div>
+                    </div>
+                    
+                     <!-- Item 2 -->
+                    <div class="md:flex flex-row-reverse items-center w-full mb-8">
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="p-6 bg-stone-900 border border-stone-800 rounded-xl mb-4 md:mb-0">
+                                <h4 class="text-xl font-bold text-sky-400 mb-2">2. Análise Técnica Profunda</h4>
+                                <p class="text-gray-300">Nossa equipe executa testes automatizados e manuais, simulando interações e ataques para coletar dados precisos sobre performance e segurança.</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex w-10 h-10 rounded-full bg-sky-500 items-center justify-center shrink-0 z-10">
+                            <span class="text-white font-bold">2</span>
+                        </div>
+                        <div class="md:w-1/2 md:pr-8"></div>
+                    </div>
+                    
+                     <!-- Item 3 -->
+                    <div class="md:flex items-center w-full">
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                            <div class="p-6 bg-stone-900 border border-stone-800 rounded-xl mb-4 md:mb-0">
+                                <h4 class="text-xl font-bold text-sky-400 mb-2">3. Relatório e Recomendações</h4>
+                                <p class="text-gray-300">Entregamos um relatório completo com os resultados, gráficos claros e um plano de ação prático para corrigir as falhas e otimizar seu chatbot.</p>
+                            </div>
+                        </div>
+                         <div class="hidden md:flex w-10 h-10 rounded-full bg-sky-500 items-center justify-center shrink-0 z-10">
+                            <span class="text-white font-bold">3</span>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="py-20 px-6 bg-stone-900/50">
+            <div class="container mx-auto max-w-3xl">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Pronto para elevar o nível do seu chatbot?</h3>
+                    <p class="mt-4 text-gray-400">Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma conversa.</p>
+                </div>
+                <div class="bg-stone-900 p-8 rounded-xl border border-stone-800">
+                    <form>
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nome" class="block text-sm font-medium text-gray-300 mb-2">Nome</label>
+                                <input type="text" id="nome" name="nome" class="w-full bg-stone-800 border-stone-700 text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all" placeholder="Seu nome completo">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full bg-stone-800 border-stone-700 text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all" placeholder="seu@email.com">
+                            </div>
+                             <div>
+                                <label for="whatsapp" class="block text-sm font-medium text-gray-300 mb-2">WhatsApp</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" class="w-full bg-stone-800 border-stone-700 text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all" placeholder="(XX) XXXXX-XXXX">
+                            </div>
+                             <div>
+                                <label for="funcao" class="block text-sm font-medium text-gray-300 mb-2">Função na Empresa</label>
+                                <input type="text" id="funcao" name="funcao" class="w-full bg-stone-800 border-stone-700 text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all" placeholder="Ex: Gerente de TI, CEO">
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <label for="empresa" class="block text-sm font-medium text-gray-300 mb-2">Empresa</label>
+                            <input type="text" id="empresa" name="empresa" class="w-full bg-stone-800 border-stone-700 text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all" placeholder="Nome da sua empresa">
+                        </div>
+                        <div class="mt-6">
+                            <label for="mensagem" class="block text-sm font-medium text-gray-300 mb-2">Mensagem (opcional)</label>
+                            <textarea id="mensagem" name="mensagem" rows="4" class="w-full bg-stone-800 border-stone-700 text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all" placeholder="Fale um pouco sobre seu chatbot ou suas necessidades..."></textarea>
+                        </div>
+                        <div class="mt-8 text-center">
+                            <button type="submit" class="w-full sm:w-auto bg-sky-500 hover:bg-sky-600 text-white font-bold text-lg px-12 py-3 rounded-lg transition-transform duration-300 ease-in-out transform hover:scale-105">
+                                Enviar Solicitação
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 border-t border-stone-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <h3 class="text-xl font-bold text-white mb-2">
+                audit<span class="text-sky-400">IA</span>
+            </h3>
+            <p>&copy; 2024 auditIA. Todos os direitos reservados.</p>
+            <p class="text-sm mt-1">Construindo chatbots mais seguros e eficientes.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Lógica para o menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Fecha o menu ao clicar em um link
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                 mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
+
