@@ -72,222 +72,246 @@
 </head>
 <body class="bg-white text-slate-800 antialiased">
 
-    <div id="main-content">
-        <!-- Header -->
-        <header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm">
-            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-                <h1 class="text-2xl font-bold text-slate-900">
-                    audit<span class="text-sky-500">IA</span>
-                </h1>
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#servicos" data-lang="navServices" class="text-slate-600 hover:text-sky-500 transition-colors">Serviços</a>
-                    <a href="#processo" data-lang="navProcess" class="text-slate-600 hover:text-sky-500 transition-colors">Processo</a>
-                    <a href="#contato" data-lang="navContact" class="text-slate-600 hover:text-sky-500 transition-colors">Contato</a>
-                    
-                    <!-- Seletor de Idioma -->
-                    <div id="lang-selector" class="flex items-center gap-3 pl-4">
-                        <button class="lang-btn rounded-full overflow-hidden transition-transform duration-200" data-lang-code="pt-BR">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="30" height="20"><path fill="#009639" d="M0 0h9v6H0z"/><path fill="#fedf00" d="m4.5 1.2-2.7 1.8 2.7 1.8 2.7-1.8z"/><path fill="#002776" d="M4.5 3a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>
-                        </button>
-                        <button class="lang-btn rounded-full overflow-hidden transition-transform duration-200" data-lang-code="en">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="30" height="20"><path fill="#B22234" d="M0 0h9v6H0z"/><path fill="#fff" d="M0 1h9v1H0zm0 2h9v1H0zM0 4h9v1H0z"/><path fill="#3C3B6E" d="M0 0h4v3H0z"/><g fill="#fff"><path d="M.4 1.2.2.8l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zM.8.6l-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zM.4 1.8.2 1.4l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zM.8 1.2l-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zM.4 2.4.2 2l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4z"/></g></svg>
-                        </button>
-                        <button class="lang-btn rounded-full overflow-hidden transition-transform duration-200" data-lang-code="es">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="30" height="20"><path fill="#C60B1E" d="M0 0h9v6H0z"/><path fill="#FFC400" d="M0 1.5h9v3H0z"/></svg>
-                        </button>
-                    </div>
-                </nav>
-                <button id="mobile-menu-button" class="md:hidden text-slate-800 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    <!-- Language Selection Modal -->
+    <div id="language-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+        <div class="text-center text-white p-8">
+            <h2 class="text-2xl md:text-3xl font-bold mb-2">Selecione seu idioma</h2>
+            <h3 class="text-xl md:text-2xl font-bold mb-8">Select your language / Seleccione su idioma</h3>
+            <div class="flex justify-center items-center gap-6 md:gap-10">
+                <button class="modal-lang-btn group" data-lang-code="pt-BR">
+                    <svg class="rounded-md transition-transform duration-300 group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="120" height="80"><path fill="#009639" d="M0 0h9v6H0z"/><path fill="#fedf00" d="m4.5 1.2-2.7 1.8 2.7 1.8 2.7-1.8z"/><path fill="#002776" d="M4.5 3a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>
+                    <span class="mt-3 block font-semibold">Português</span>
+                </button>
+                <button class="modal-lang-btn group" data-lang-code="en">
+                    <svg class="rounded-md transition-transform duration-300 group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="120" height="80"><path fill="#B22234" d="M0 0h9v6H0z"/><path fill="#fff" d="M0 1h9v1H0zm0 2h9v1H0zM0 4h9v1H0z"/><path fill="#3C3B6E" d="M0 0h4v3H0z"/><g fill="#fff"><path d="M.4 1.2.2.8l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zM.8.6l-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zM.4 1.8.2 1.4l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zM.8 1.2l-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zM.4 2.4.2 2l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4z"/></g></svg>
+                    <span class="mt-3 block font-semibold">English</span>
+                </button>
+                <button class="modal-lang-btn group" data-lang-code="es">
+                    <svg class="rounded-md transition-transform duration-300 group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="120" height="80"><path fill="#C60B1E" d="M0 0h9v6H0z"/><path fill="#FFC400" d="M0 1.5h9v3H0z"/></svg>
+                    <span class="mt-3 block font-semibold">Español</span>
                 </button>
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-                <a href="#servicos" data-lang="navServicesMobile" class="block text-center py-3 px-6 text-slate-600 hover:bg-gray-100 transition-colors">Serviços</a>
-                <a href="#processo" data-lang="navProcessMobile" class="block text-center py-3 px-6 text-slate-600 hover:bg-gray-100 transition-colors">Processo</a>
-                <a href="#contato" data-lang="navContactMobile" class="block text-center py-3 px-6 text-slate-600 hover:bg-gray-100 transition-colors">Contato</a>
-                <div class="p-4">
-                     <a href="#contato" data-lang="ctaButtonMobile" class="block w-full text-center bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-3 rounded-lg transition-colors">
-                        Solicitar Auditoria
-                    </a>
-                </div>
-            </div>
-        </header>
+        </div>
+    </div>
 
-        <main>
-            <!-- Hero Section -->
-            <section id="home" class="hero-background text-center px-6 pt-44 pb-20 md:pt-56 md:pb-32">
-                <div class="container mx-auto fade-in-section">
-                    <h2 data-lang="heroTitle" class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
-                        Auditoria de <span class="text-sky-500">Performance</span> e <span class="text-sky-500">Segurança</span> para Chatbots com IA
-                    </h2>
-                    <p data-lang="heroSubtitle" class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-slate-600">
-                        Otimize a experiência do seu cliente e proteja seus dados. Garantimos que seu chatbot no WhatsApp seja rápido, seguro e confiável.
-                    </p>
-                    <div class="mt-10">
-                        <a href="#contato" data-lang="heroButton" class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 glow-on-hover">
-                            Receba uma Proposta
+    <div id="page-wrapper" class="hidden">
+        <div id="main-content">
+            <!-- Header -->
+            <header class="fixed top-0 left-0 w-full z-40 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+                <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                    <h1 class="text-2xl font-bold text-slate-900">
+                        audit<span class="text-sky-500">IA</span>
+                    </h1>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="#servicos" data-lang="navServices" class="text-slate-600 hover:text-sky-500 transition-colors">Serviços</a>
+                        <a href="#processo" data-lang="navProcess" class="text-slate-600 hover:text-sky-500 transition-colors">Processo</a>
+                        <a href="#contato" data-lang="navContact" class="text-slate-600 hover:text-sky-500 transition-colors">Contato</a>
+                        
+                        <!-- Seletor de Idioma -->
+                        <div id="lang-selector" class="flex items-center gap-3 pl-4">
+                            <button class="lang-btn rounded-full overflow-hidden transition-transform duration-200" data-lang-code="pt-BR">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="30" height="20"><path fill="#009639" d="M0 0h9v6H0z"/><path fill="#fedf00" d="m4.5 1.2-2.7 1.8 2.7 1.8 2.7-1.8z"/><path fill="#002776" d="M4.5 3a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>
+                            </button>
+                            <button class="lang-btn rounded-full overflow-hidden transition-transform duration-200" data-lang-code="en">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="30" height="20"><path fill="#B22234" d="M0 0h9v6H0z"/><path fill="#fff" d="M0 1h9v1H0zm0 2h9v1H0zM0 4h9v1H0z"/><path fill="#3C3B6E" d="M0 0h4v3H0z"/><g fill="#fff"><path d="M.4 1.2.2.8l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zM.8.6l-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zM.4 1.8.2 1.4l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zM.8 1.2l-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zM.4 2.4.2 2l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4z"/></g></svg>
+                            </button>
+                            <button class="lang-btn rounded-full overflow-hidden transition-transform duration-200" data-lang-code="es">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="30" height="20"><path fill="#C60B1E" d="M0 0h9v6H0z"/><path fill="#FFC400" d="M0 1.5h9v3H0z"/></svg>
+                            </button>
+                        </div>
+                    </nav>
+                    <button id="mobile-menu-button" class="md:hidden text-slate-800 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+                    <a href="#servicos" data-lang="navServicesMobile" class="block text-center py-3 px-6 text-slate-600 hover:bg-gray-100 transition-colors">Serviços</a>
+                    <a href="#processo" data-lang="navProcessMobile" class="block text-center py-3 px-6 text-slate-600 hover:bg-gray-100 transition-colors">Processo</a>
+                    <a href="#contato" data-lang="navContactMobile" class="block text-center py-3 px-6 text-slate-600 hover:bg-gray-100 transition-colors">Contato</a>
+                    <div class="p-4">
+                         <a href="#contato" data-lang="ctaButtonMobile" class="block w-full text-center bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-3 rounded-lg transition-colors">
+                            Solicitar Auditoria
                         </a>
                     </div>
                 </div>
-            </section>
+            </header>
 
-            <!-- Services Section -->
-            <section id="servicos" class="py-20 px-6 bg-slate-50">
-                <div class="container mx-auto">
-                    <div class="text-center mb-12 fade-in-section">
-                        <h3 data-lang="servicesTitle" class="text-3xl md:text-4xl font-bold text-slate-900">O que sua empresa ganha?</h3>
-                        <p data-lang="servicesSubtitle" class="mt-4 max-w-2xl mx-auto text-slate-600">Nossas auditorias são projetadas para identificar pontos críticos e oportunidades de melhoria.</p>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Service Card 1 -->
-                        <div class="bg-white p-8 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 fade-in-section">
-                            <div class="flex items-center gap-4 mb-4">
-                                 <div class="bg-sky-500/10 p-3 rounded-lg">
-                                     <i data-lucide="zap" class="h-8 w-8 text-sky-500"></i>
-                                </div>
-                                <h4 data-lang="perfAuditTitle" class="text-2xl font-bold text-slate-900">Auditoria de Performance</h4>
-                            </div>
-                            <p data-lang="perfAuditDesc" class="text-slate-600">Analisamos a velocidade de resposta, a eficiência do fluxo de conversa, o consumo de recursos e a capacidade do seu chatbot de escalar. Identificamos gargalos que frustram seus clientes e impactam seus resultados.</p>
-                        </div>
-                        <!-- Service Card 2 -->
-                        <div class="bg-white p-8 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 fade-in-section">
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="bg-teal-500/10 p-3 rounded-lg">
-                                    <i data-lucide="shield-check" class="h-8 w-8 text-teal-500"></i>
-                                </div>
-                                <h4 data-lang="secAuditTitle" class="text-2xl font-bold text-slate-900">Auditoria de Segurança</h4>
-                            </div>
-                            <p data-lang="secAuditDesc" class="text-slate-600">Verificamos vulnerabilidades, proteção de dados (LGPD), riscos de injeção de código e a robustez da autenticação. Proteja sua empresa e seus clientes contra ameaças e vazamento de informações sensíveis.</p>
+            <main>
+                <!-- Hero Section -->
+                <section id="home" class="hero-background text-center px-6 pt-44 pb-20 md:pt-56 md:pb-32">
+                    <div class="container mx-auto fade-in-section">
+                        <h2 data-lang="heroTitle" class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
+                            Auditoria de <span class="text-sky-500">Performance</span> e <span class="text-sky-500">Segurança</span> para Chatbots com IA
+                        </h2>
+                        <p data-lang="heroSubtitle" class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-slate-600">
+                            Otimize a experiência do seu cliente e proteja seus dados. Garantimos que seu chatbot no WhatsApp seja rápido, seguro e confiável.
+                        </p>
+                        <div class="mt-10">
+                            <a href="#contato" data-lang="heroButton" class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 glow-on-hover">
+                                Receba uma Proposta
+                            </a>
                         </div>
                     </div>
+                </section>
+
+                <!-- Services Section -->
+                <section id="servicos" class="py-20 px-6 bg-slate-50">
+                    <div class="container mx-auto">
+                        <div class="text-center mb-12 fade-in-section">
+                            <h3 data-lang="servicesTitle" class="text-3xl md:text-4xl font-bold text-slate-900">O que sua empresa ganha?</h3>
+                            <p data-lang="servicesSubtitle" class="mt-4 max-w-2xl mx-auto text-slate-600">Nossas auditorias são projetadas para identificar pontos críticos e oportunidades de melhoria.</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <!-- Service Card 1 -->
+                            <div class="bg-white p-8 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 fade-in-section">
+                                <div class="flex items-center gap-4 mb-4">
+                                     <div class="bg-sky-500/10 p-3 rounded-lg">
+                                         <i data-lucide="zap" class="h-8 w-8 text-sky-500"></i>
+                                    </div>
+                                    <h4 data-lang="perfAuditTitle" class="text-2xl font-bold text-slate-900">Auditoria de Performance</h4>
+                                </div>
+                                <p data-lang="perfAuditDesc" class="text-slate-600">Analisamos a velocidade de resposta, a eficiência do fluxo de conversa, o consumo de recursos e a capacidade do seu chatbot de escalar. Identificamos gargalos que frustram seus clientes e impactam seus resultados.</p>
+                            </div>
+                            <!-- Service Card 2 -->
+                            <div class="bg-white p-8 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 fade-in-section">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="bg-teal-500/10 p-3 rounded-lg">
+                                        <i data-lucide="shield-check" class="h-8 w-8 text-teal-500"></i>
+                                    </div>
+                                    <h4 data-lang="secAuditTitle" class="text-2xl font-bold text-slate-900">Auditoria de Segurança</h4>
+                                </div>
+                                <p data-lang="secAuditDesc" class="text-slate-600">Verificamos vulnerabilidades, proteção de dados (LGPD), riscos de injeção de código e a robustez da autenticação. Proteja sua empresa e seus clientes contra ameaças e vazamento de informações sensíveis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Process Section -->
+                <section id="processo" class="py-20 px-6">
+                    <div class="container mx-auto">
+                        <div class="text-center mb-16 fade-in-section">
+                            <h3 data-lang="processTitle" class="text-3xl md:text-4xl font-bold text-slate-900">Nosso Processo Simplificado</h3>
+                            <p data-lang="processSubtitle" class="mt-4 max-w-2xl mx-auto text-slate-600">Trabalhamos de forma transparente e eficiente.</p>
+                        </div>
+                        <div class="relative">
+                            <!-- Linha do tempo -->
+                            <div class="hidden md:block absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
+                            
+                            <div class="md:flex items-center w-full mb-8 fade-in-section">
+                                <div class="md:w-1/2 md:pr-8 md:text-right">
+                                     <div class="p-6 bg-white border border-gray-200 rounded-xl mb-4 md:mb-0 shadow-md hover:shadow-lg transition-shadow duration-300">
+                                        <h4 data-lang="processStep1Title" class="text-xl font-bold text-sky-500 mb-2">1. Contato e Definição de Escopo</h4>
+                                        <p data-lang="processStep1Desc" class="text-slate-600">Entendemos suas necessidades, o volume de usuários e as funcionalidades do seu chatbot para definir os objetivos da auditoria.</p>
+                                    </div>
+                                </div>
+                                <div class="hidden md:flex w-10 h-10 rounded-full bg-sky-500 items-center justify-center shrink-0 z-10 shadow-md">
+                                     <span class="text-white font-bold">1</span>
+                                </div>
+                                 <div class="md:w-1/2 md:pl-8"></div>
+                            </div>
+                            
+                            <div class="md:flex flex-row-reverse items-center w-full mb-8 fade-in-section">
+                                <div class="md:w-1/2 md:pl-8">
+                                    <div class="p-6 bg-white border border-gray-200 rounded-xl mb-4 md:mb-0 shadow-md hover:shadow-lg transition-shadow duration-300">
+                                        <h4 data-lang="processStep2Title" class="text-xl font-bold text-sky-500 mb-2">2. Análise Técnica Profunda</h4>
+                                        <p data-lang="processStep2Desc" class="text-slate-600">Nossa equipe executa testes automatizados e manuais, simulando interações e ataques para coletar dados precisos sobre performance e segurança.</p>
+                                    </div>
+                                </div>
+                                <div class="hidden md:flex w-10 h-10 rounded-full bg-sky-500 items-center justify-center shrink-0 z-10 shadow-md">
+                                    <span class="text-white font-bold">2</span>
+                                </div>
+                                <div class="md:w-1/2 md:pr-8"></div>
+                            </div>
+                            
+                            <div class="md:flex items-center w-full fade-in-section">
+                                <div class="md:w-1/2 md:pr-8 md:text-right">
+                                    <div class="p-6 bg-white border border-gray-200 rounded-xl mb-4 md:mb-0 shadow-md hover:shadow-lg transition-shadow duration-300">
+                                        <h4 data-lang="processStep3Title" class="text-xl font-bold text-sky-500 mb-2">3. Relatório e Recomendações</h4>
+                                        <p data-lang="processStep3Desc" class="text-slate-600">Entregamos um relatório completo com os resultados, gráficos claros e um plano de ação prático para corrigir as falhas e otimizar seu chatbot.</p>
+                                    </div>
+                                </div>
+                                 <div class="hidden md:flex w-10 h-10 rounded-full bg-sky-500 items-center justify-center shrink-0 z-10 shadow-md">
+                                    <span class="text-white font-bold">3</span>
+                                </div>
+                                <div class="md:w-1/2 md:pl-8"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contato" class="py-20 px-6 bg-slate-50">
+                    <div class="container mx-auto max-w-3xl fade-in-section">
+                        <div class="text-center mb-12">
+                            <h3 data-lang="contactTitle" class="text-3xl md:text-4xl font-bold text-slate-900">Pronto para elevar o nível do seu chatbot?</h3>
+                            <p data-lang="contactSubtitle" class="mt-4 text-slate-600">Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma conversa.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-xl">
+                            <form id="contact-form" novalidate>
+                                <div class="grid sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="nome" data-lang="formName" class="block text-sm font-medium text-slate-700 mb-2">Nome</label>
+                                        <input required type="text" id="nome" name="nome" data-lang-placeholder="formNamePlaceholder" class="w-full bg-slate-100 border-gray-300 text-slate-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-300">
+                                    </div>
+                                    <div>
+                                        <label for="email" data-lang="formEmail" class="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                                        <input required type="email" id="email" name="email" data-lang-placeholder="formEmailPlaceholder" class="w-full bg-slate-100 border-gray-300 text-slate-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-300">
+                                    </div>
+                                     <div class="sm:col-span-2">
+                                        <label for="whatsapp" data-lang="formWhatsapp" class="block text-sm font-medium text-slate-700 mb-2">WhatsApp</label>
+                                        <input required type="tel" id="whatsapp" name="whatsapp_temp" class="iti__tel-input">
+                                    </div>
+                                     <div>
+                                        <label for="funcao" data-lang="formRole" class="block text-sm font-medium text-slate-700 mb-2">Função na Empresa</label>
+                                        <input type="text" id="funcao" name="funcao" data-lang-placeholder="formRolePlaceholder" class="w-full bg-slate-100 border-gray-300 text-slate-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-300">
+                                    </div>
+                                    <div>
+                                        <label for="empresa" data-lang="formCompany" class="block text-sm font-medium text-slate-700 mb-2">Empresa</label>
+                                        <input type="text" id="empresa" name="empresa" data-lang-placeholder="formCompanyPlaceholder" class="w-full bg-slate-100 border-gray-300 text-slate-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-300">
+                                    </div>
+                                </div>
+                                <div class="mt-6">
+                                    <label for="mensagem" data-lang="formMessage" class="block text-sm font-medium text-slate-700 mb-2">Mensagem (opcional)</label>
+                                    <textarea id="mensagem" name="mensagem" rows="4" data-lang-placeholder="formMessagePlaceholder" class="w-full bg-slate-100 border-gray-300 text-slate-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-300"></textarea>
+                                </div>
+                                <div class="mt-4 flex items-center justify-center gap-2 text-sm text-slate-500">
+                                    <i data-lucide="lock" class="h-4 w-4"></i>
+                                    <span data-lang="formSecure">Suas informações estão seguras conosco.</span>
+                                </div>
+                                <div class="mt-6 text-center">
+                                    <button id="submit-button" type="submit" class="w-full sm:w-auto bg-sky-500 hover:bg-sky-600 text-white font-bold text-lg px-12 py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 disabled:bg-sky-400 disabled:scale-100 flex items-center justify-center gap-3">
+                                        <span id="button-text" data-lang="formSubmit">Enviar Solicitação</span>
+                                        <div id="loading-spinner" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="bg-slate-50 border-t border-gray-200">
+                <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">
+                        audit<span class="text-sky-500">IA</span>
+                    </h3>
+                    <p data-lang="footerRights">&copy; 2025 auditIA | 2BX Soluções Inteligentes. Todos os direitos reservados.</p>
+                    <p data-lang="footerSlogan" class="text-sm mt-1">Construindo chatbots mais seguros e eficientes.</p>
                 </div>
-            </section>
+            </footer>
+        </div>
 
-            <!-- Process Section -->
-            <section id="processo" class="py-20 px-6">
-                <div class="container mx-auto">
-                    <div class="text-center mb-16 fade-in-section">
-                        <h3 data-lang="processTitle" class="text-3xl md:text-4xl font-bold text-slate-900">Nosso Processo Simplificado</h3>
-                        <p data-lang="processSubtitle" class="mt-4 max-w-2xl mx-auto text-slate-600">Trabalhamos de forma transparente e eficiente.</p>
-                    </div>
-                    <div class="relative">
-                        <!-- Linha do tempo -->
-                        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
-                        
-                        <div class="md:flex items-center w-full mb-8 fade-in-section">
-                            <div class="md:w-1/2 md:pr-8 md:text-right">
-                                 <div class="p-6 bg-white border border-gray-200 rounded-xl mb-4 md:mb-0 shadow-md hover:shadow-lg transition-shadow duration-300">
-                                    <h4 data-lang="processStep1Title" class="text-xl font-bold text-sky-500 mb-2">1. Contato e Definição de Escopo</h4>
-                                    <p data-lang="processStep1Desc" class="text-slate-600">Entendemos suas necessidades, o volume de usuários e as funcionalidades do seu chatbot para definir os objetivos da auditoria.</p>
-                                </div>
-                            </div>
-                            <div class="hidden md:flex w-10 h-10 rounded-full bg-sky-500 items-center justify-center shrink-0 z-10 shadow-md">
-                                 <span class="text-white font-bold">1</span>
-                            </div>
-                             <div class="md:w-1/2 md:pl-8"></div>
-                        </div>
-                        
-                        <div class="md:flex flex-row-reverse items-center w-full mb-8 fade-in-section">
-                            <div class="md:w-1/2 md:pl-8">
-                                <div class="p-6 bg-white border border-gray-200 rounded-xl mb-4 md:mb-0 shadow-md hover:shadow-lg transition-shadow duration-300">
-                                    <h4 data-lang="processStep2Title" class="text-xl font-bold text-sky-500 mb-2">2. Análise Técnica Profunda</h4>
-                                    <p data-lang="processStep2Desc" class="text-slate-600">Nossa equipe executa testes automatizados e manuais, simulando interações e ataques para coletar dados precisos sobre performance e segurança.</p>
-                                </div>
-                            </div>
-                            <div class="hidden md:flex w-10 h-10 rounded-full bg-sky-500 items-center justify-center shrink-0 z-10 shadow-md">
-                                <span class="text-white font-bold">2</span>
-                            </div>
-                            <div class="md:w-1/2 md:pr-8"></div>
-                        </div>
-                        
-                        <div class="md:flex items-center w-full fade-in-section">
-                            <div class="md:w-1/2 md:pr-8 md:text-right">
-                                <div class="p-6 bg-white border border-gray-200 rounded-xl mb-4 md:mb-0 shadow-md hover:shadow-lg transition-shadow duration-300">
-                                    <h4 data-lang="processStep3Title" class="text-xl font-bold text-sky-500 mb-2">3. Relatório e Recomendações</h4>
-                                    <p data-lang="processStep3Desc" class="text-slate-600">Entregamos um relatório completo com os resultados, gráficos claros e um plano de ação prático para corrigir as falhas e otimizar seu chatbot.</p>
-                                </div>
-                            </div>
-                             <div class="hidden md:flex w-10 h-10 rounded-full bg-sky-500 items-center justify-center shrink-0 z-10 shadow-md">
-                                <span class="text-white font-bold">3</span>
-                            </div>
-                            <div class="md:w-1/2 md:pl-8"></div>
-                        </div>
-                    </div>
+        <!-- Success Message -->
+        <div id="success-message" class="hidden fixed inset-0 bg-white z-50 flex items-center justify-center text-center p-6">
+            <div>
+                <div class="w-24 h-24 mx-auto bg-green-100 rounded-full flex items-center justify-center">
+                    <i data-lucide="check-circle-2" class="text-green-600 w-16 h-16"></i>
                 </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contato" class="py-20 px-6 bg-slate-50">
-                <div class="container mx-auto max-w-3xl fade-in-section">
-                    <div class="text-center mb-12">
-                        <h3 data-lang="contactTitle" class="text-3xl md:text-4xl font-bold text-slate-900">Pronto para elevar o nível do seu chatbot?</h3>
-                        <p data-lang="contactSubtitle" class="mt-4 text-slate-600">Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma conversa.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-xl">
-                        <form id="contact-form" novalidate>
-                            <div class="grid sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="nome" data-lang="formName" class="block text-sm font-medium text-slate-700 mb-2">Nome</label>
-                                    <input required type="text" id="nome" name="nome" data-lang-placeholder="formNamePlaceholder" class="w-full bg-slate-100 border-gray-300 text-slate-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-300">
-                                </div>
-                                <div>
-                                    <label for="email" data-lang="formEmail" class="block text-sm font-medium text-slate-700 mb-2">Email</label>
-                                    <input required type="email" id="email" name="email" data-lang-placeholder="formEmailPlaceholder" class="w-full bg-slate-100 border-gray-300 text-slate-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-300">
-                                </div>
-                                 <div class="sm:col-span-2">
-                                    <label for="whatsapp" data-lang="formWhatsapp" class="block text-sm font-medium text-slate-700 mb-2">WhatsApp</label>
-                                    <input required type="tel" id="whatsapp" name="whatsapp_temp" class="iti__tel-input">
-                                </div>
-                                 <div>
-                                    <label for="funcao" data-lang="formRole" class="block text-sm font-medium text-slate-700 mb-2">Função na Empresa</label>
-                                    <input type="text" id="funcao" name="funcao" data-lang-placeholder="formRolePlaceholder" class="w-full bg-slate-100 border-gray-300 text-slate-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-300">
-                                </div>
-                                <div>
-                                    <label for="empresa" data-lang="formCompany" class="block text-sm font-medium text-slate-700 mb-2">Empresa</label>
-                                    <input type="text" id="empresa" name="empresa" data-lang-placeholder="formCompanyPlaceholder" class="w-full bg-slate-100 border-gray-300 text-slate-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-300">
-                                </div>
-                            </div>
-                            <div class="mt-6">
-                                <label for="mensagem" data-lang="formMessage" class="block text-sm font-medium text-slate-700 mb-2">Mensagem (opcional)</label>
-                                <textarea id="mensagem" name="mensagem" rows="4" data-lang-placeholder="formMessagePlaceholder" class="w-full bg-slate-100 border-gray-300 text-slate-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-all duration-300"></textarea>
-                            </div>
-                            <div class="mt-4 flex items-center justify-center gap-2 text-sm text-slate-500">
-                                <i data-lucide="lock" class="h-4 w-4"></i>
-                                <span data-lang="formSecure">Suas informações estão seguras conosco.</span>
-                            </div>
-                            <div class="mt-6 text-center">
-                                <button id="submit-button" type="submit" class="w-full sm:w-auto bg-sky-500 hover:bg-sky-600 text-white font-bold text-lg px-12 py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 disabled:bg-sky-400 disabled:scale-100 flex items-center justify-center gap-3">
-                                    <span id="button-text" data-lang="formSubmit">Enviar Solicitação</span>
-                                    <div id="loading-spinner" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-slate-50 border-t border-gray-200">
-            <div class="container mx-auto px-6 py-8 text-center text-slate-500">
-                <h3 class="text-xl font-bold text-slate-900 mb-2">
-                    audit<span class="text-sky-500">IA</span>
-                </h3>
-                <p data-lang="footerRights">&copy; 2025 auditIA | 2BX Soluções Inteligentes. Todos os direitos reservados.</p>
-                <p data-lang="footerSlogan" class="text-sm mt-1">Construindo chatbots mais seguros e eficientes.</p>
+                <h2 data-lang="successTitle" class="mt-6 text-3xl font-bold text-slate-900">Solicitação Enviada!</h2>
+                <p data-lang="successSubtitle" class="mt-4 text-lg text-slate-600">Obrigado pelo seu interesse. Recebemos suas informações e nossa equipe entrará em contato em breve.</p>
             </div>
-        </footer>
-    </div>
-
-    <!-- Success Message -->
-    <div id="success-message" class="hidden fixed inset-0 bg-white z-50 flex items-center justify-center text-center p-6">
-        <div>
-            <div class="w-24 h-24 mx-auto bg-green-100 rounded-full flex items-center justify-center">
-                <i data-lucide="check-circle-2" class="text-green-600 w-16 h-16"></i>
-            </div>
-            <h2 data-lang="successTitle" class="mt-6 text-3xl font-bold text-slate-900">Solicitação Enviada!</h2>
-            <p data-lang="successSubtitle" class="mt-4 text-lg text-slate-600">Obrigado pelo seu interesse. Recebemos suas informações e nossa equipe entrará em contato em breve.</p>
         </div>
     </div>
     
@@ -295,310 +319,325 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
 
     <script>
-        // Renderiza os ícones do Lucide
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            // Renderiza os ícones do Lucide
+            lucide.createIcons();
 
-        // Lógica para o menu mobile
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
-        for (let link of mobileMenuLinks) {
-            link.addEventListener('click', () => {
-                 mobileMenu.classList.add('hidden');
-            });
-        }
-
-        // Lógica de tradução
-        const translations = {
-            'pt-BR': {
-                navServices: 'Serviços',
-                navProcess: 'Processo',
-                navContact: 'Contato',
-                navServicesMobile: 'Serviços',
-                navProcessMobile: 'Processo',
-                navContactMobile: 'Contato',
-                ctaButtonMobile: 'Solicitar Auditoria',
-                heroTitle: 'Auditoria de <span class="text-sky-500">Performance</span> e <span class="text-sky-500">Segurança</span> para Chatbots com IA',
-                heroSubtitle: 'Otimize a experiência do seu cliente e proteja seus dados. Garantimos que seu chatbot no WhatsApp seja rápido, seguro e confiável.',
-                heroButton: 'Receba uma Proposta',
-                servicesTitle: 'O que sua empresa ganha?',
-                servicesSubtitle: 'Nossas auditorias são projetadas para identificar pontos críticos e oportunidades de melhoria.',
-                perfAuditTitle: 'Auditoria de Performance',
-                perfAuditDesc: 'Analisamos a velocidade de resposta, a eficiência do fluxo de conversa, o consumo de recursos e a capacidade do seu chatbot de escalar. Identificamos gargalos que frustram seus clientes e impactam seus resultados.',
-                secAuditTitle: 'Auditoria de Segurança',
-                secAuditDesc: 'Verificamos vulnerabilidades, proteção de dados (LGPD), riscos de injeção de código e a robustez da autenticação. Proteja sua empresa e seus clientes contra ameaças e vazamento de informações sensíveis.',
-                processTitle: 'Nosso Processo Simplificado',
-                processSubtitle: 'Trabalhamos de forma transparente e eficiente.',
-                processStep1Title: '1. Contato e Definição de Escopo',
-                processStep1Desc: 'Entendemos suas necessidades, o volume de usuários e as funcionalidades do seu chatbot para definir os objetivos da auditoria.',
-                processStep2Title: '2. Análise Técnica Profunda',
-                processStep2Desc: 'Nossa equipe executa testes automatizados e manuais, simulando interações e ataques para coletar dados precisos sobre performance e segurança.',
-                processStep3Title: '3. Relatório e Recomendações',
-                processStep3Desc: 'Entregamos um relatório completo com os resultados, gráficos claros e um plano de ação prático para corrigir as falhas e otimizar seu chatbot.',
-                contactTitle: 'Pronto para elevar o nível do seu chatbot?',
-                contactSubtitle: 'Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma conversa.',
-                formName: 'Nome',
-                formNamePlaceholder: 'Seu nome completo',
-                formEmail: 'Email',
-                formEmailPlaceholder: 'seu@email.com',
-                formWhatsapp: 'WhatsApp',
-                formWhatsappInvalid: 'Por favor, insira um número de WhatsApp válido.',
-                formRole: 'Função na Empresa',
-                formRolePlaceholder: 'Ex: Gerente de TI, CEO',
-                formCompany: 'Empresa',
-                formCompanyPlaceholder: 'Nome da sua empresa',
-                formMessage: 'Mensagem (opcional)',
-                formMessagePlaceholder: 'Fale um pouco sobre seu chatbot ou suas necessidades...',
-                formSecure: 'Suas informações estão seguras conosco.',
-                formSubmit: 'Enviar Solicitação',
-                formSubmitting: 'Enviando...',
-                footerRights: '&copy; 2025 auditIA | 2BX Soluções Inteligentes. Todos os direitos reservados.',
-                footerSlogan: 'Construindo chatbots mais seguros e eficientes.',
-                successTitle: 'Solicitação Enviada!',
-                successSubtitle: 'Obrigado pelo seu interesse. Recebemos suas informações e nossa equipe entrará em contato em breve.'
-            },
-            'en': {
-                navServices: 'Services',
-                navProcess: 'Process',
-                navContact: 'Contact',
-                navServicesMobile: 'Services',
-                navProcessMobile: 'Process',
-                navContactMobile: 'Contact',
-                ctaButtonMobile: 'Request Audit',
-                heroTitle: '<span class="text-sky-500">Performance</span> and <span class="text-sky-500">Security</span> Audits for AI Chatbots',
-                heroSubtitle: 'Optimize your customer experience and protect your data. We ensure your WhatsApp chatbot is fast, secure, and reliable.',
-                heroButton: 'Get a Proposal',
-                servicesTitle: 'What does your company gain?',
-                servicesSubtitle: 'Our audits are designed to identify critical points and improvement opportunities.',
-                perfAuditTitle: 'Performance Audit',
-                perfAuditDesc: 'We analyze response speed, conversation flow efficiency, resource consumption, and your chatbot\'s ability to scale. We identify bottlenecks that frustrate your customers and impact your results.',
-                secAuditTitle: 'Security Audit',
-                secAuditDesc: 'We check for vulnerabilities, data protection (like GDPR/LGPD), code injection risks, and authentication robustness. Protect your company and your customers from threats and sensitive data leaks.',
-                processTitle: 'Our Simplified Process',
-                processSubtitle: 'We work transparently and efficiently.',
-                processStep1Title: '1. Contact & Scope Definition',
-                processStep1Desc: 'We understand your needs, user volume, and chatbot features to define the audit objectives.',
-                processStep2Title: '2. In-depth Technical Analysis',
-                processStep2Desc: 'Our team performs automated and manual tests, simulating interactions and attacks to collect accurate performance and security data.',
-                processStep3Title: '3. Report & Recommendations',
-                processStep3Desc: 'We deliver a complete report with findings, clear charts, and a practical action plan to fix flaws and optimize your chatbot.',
-                contactTitle: 'Ready to level up your chatbot?',
-                contactSubtitle: 'Fill out the form below, and our team will contact you to schedule a conversation.',
-                formName: 'Name',
-                formNamePlaceholder: 'Your full name',
-                formEmail: 'Email',
-                formEmailPlaceholder: 'your@email.com',
-                formWhatsapp: 'WhatsApp',
-                formWhatsappInvalid: 'Please enter a valid WhatsApp number.',
-                formRole: 'Role in Company',
-                formRolePlaceholder: 'e.g., IT Manager, CEO',
-                formCompany: 'Company',
-                formCompanyPlaceholder: 'Your company name',
-                formMessage: 'Message (optional)',
-                formMessagePlaceholder: 'Tell us a bit about your chatbot or your needs...',
-                formSecure: 'Your information is safe with us.',
-                formSubmit: 'Send Request',
-                formSubmitting: 'Sending...',
-                footerRights: '&copy; 2025 auditIA | 2BX Intelligent Solutions. All rights reserved.',
-                footerSlogan: 'Building safer and more efficient chatbots.',
-                successTitle: 'Request Sent!',
-                successSubtitle: 'Thank you for your interest. We have received your information and our team will be in touch shortly.'
-            },
-            'es': {
-                navServices: 'Servicios',
-                navProcess: 'Proceso',
-                navContact: 'Contacto',
-                navServicesMobile: 'Servicios',
-                navProcessMobile: 'Proceso',
-                navContactMobile: 'Contacto',
-                ctaButtonMobile: 'Solicitar Auditoría',
-                heroTitle: 'Auditoría de <span class="text-sky-500">Rendimiento</span> y <span class="text-sky-500">Seguridad</span> para Chatbots con IA',
-                heroSubtitle: 'Optimice la experiencia de su cliente y proteja sus datos. Garantizamos que su chatbot de WhatsApp sea rápido, seguro y confiable.',
-                heroButton: 'Recibir una Propuesta',
-                servicesTitle: '¿Qué gana su empresa?',
-                servicesSubtitle: 'Nuestras auditorías están diseñadas para identificar puntos críticos y oportunidades de mejora.',
-                perfAuditTitle: 'Auditoría de Rendimiento',
-                perfAuditDesc: 'Analizamos la velocidad de respuesta, la eficiencia del flujo de conversación, el consumo de recursos y la capacidad de su chatbot para escalar. Identificamos cuellos de botella que frustran a sus clientes e impactan sus resultados.',
-                secAuditTitle: 'Auditoría de Seguridad',
-                secAuditDesc: 'Verificamos vulnerabilidades, protección de datos (como RGPD/LGPD), riesgos de inyección de código y la robustez de la autenticación. Proteja a su empresa y a sus clientes contra amenazas y fugas de información sensible.',
-                processTitle: 'Nuestro Proceso Simplificado',
-                processSubtitle: 'Trabajamos de forma transparente y eficiente.',
-                processStep1Title: '1. Contacto y Definición del Alcance',
-                processStep1Desc: 'Entendemos sus necesidades, el volumen de usuarios y las funcionalidades de su chatbot para definir los objetivos de la auditoría.',
-                processStep2Title: '2. Análisis Técnico Profundo',
-                processStep2Desc: 'Nuestro equipo realiza pruebas automatizadas y manuales, simulando interacciones y ataques para recopilar datos precisos sobre rendimiento y seguridad.',
-                processStep3Title: '3. Informe y Recomendaciones',
-                processStep3Desc: 'Entregamos un informe completo con los hallazgos, gráficos claros y un plan de acción práctico para corregir las fallas y optimizar su chatbot.',
-                contactTitle: '¿Listo para elevar el nivel de su chatbot?',
-                contactSubtitle: 'Complete el siguiente formulario y nuestro equipo se pondrá en contacto para programar una conversación.',
-                formName: 'Nombre',
-                formNamePlaceholder: 'Su nombre completo',
-                formEmail: 'Correo Electrónico',
-                formEmailPlaceholder: 'su@email.com',
-                formWhatsapp: 'WhatsApp',
-                formWhatsappInvalid: 'Por favor, ingrese un número de WhatsApp válido.',
-                formRole: 'Cargo en la Empresa',
-                formRolePlaceholder: 'Ej: Gerente de TI, CEO',
-                formCompany: 'Empresa',
-                formCompanyPlaceholder: 'Nombre de su empresa',
-                formMessage: 'Mensaje (opcional)',
-                formMessagePlaceholder: 'Cuéntenos un poco sobre su chatbot o sus necesidades...',
-                formSecure: 'Su información está segura con nosotros.',
-                formSubmit: 'Enviar Solicitud',
-                formSubmitting: 'Enviando...',
-                footerRights: '&copy; 2025 auditIA | 2BX Soluciones Inteligentes. Todos los derechos reservados.',
-                footerSlogan: 'Construyendo chatbots más seguros y eficientes.',
-                successTitle: '¡Solicitud Enviada!',
-                successSubtitle: 'Gracias por su interés. Hemos recibido su información y nuestro equipo se pondrá en contacto en breve.'
-            }
-        };
-
-        const langSelector = document.getElementById('lang-selector');
-        const langButtons = langSelector.querySelectorAll('.lang-btn');
-
-        const setLanguage = (lang) => {
-            document.documentElement.lang = lang;
-            const translation = translations[lang];
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                const key = el.dataset.lang;
-                if (translation[key]) {
-                    el.innerHTML = translation[key];
-                }
-            });
-            document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
-                const key = el.dataset.langPlaceholder;
-                if (translation[key]) {
-                    el.placeholder = translation[key];
-                }
-            });
-
-            // Atualiza o estado ativo da bandeira
-            langButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.langCode === lang) {
-                    btn.classList.add('active');
-                }
-            });
-        };
-
-        langButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const lang = e.currentTarget.dataset.langCode;
-                setLanguage(lang);
-            });
-        });
-
-        
-        // Lógica do campo de telefone
-        const whatsappInput = document.querySelector("#whatsapp");
-        const iti = window.intlTelInput(whatsappInput, {
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
-            initialCountry: "auto",
-            geoIpLookup: callback => {
-                fetch("https://ipapi.co/json")
-                    .then(res => res.json())
-                    .then(data => callback(data.country_code))
-                    .catch(() => callback("us"));
-            },
-            separateDialCode: true,
-        });
-
-        // Define o idioma inicial
-        setLanguage('pt-BR');
-
-        // Lógica do formulário de contato
-        const contactForm = document.getElementById('contact-form');
-        const submitButton = document.getElementById('submit-button');
-        const buttonText = document.getElementById('button-text');
-        const loadingSpinner = document.getElementById('loading-spinner');
-        const mainContent = document.getElementById('main-content');
-        const successMessage = document.getElementById('success-message');
-
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); 
+            // Lógica para o menu mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
             
-            const currentLang = document.documentElement.lang || 'pt-BR';
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
             
-            // Validação do número de telefone
-            if (!iti.isValidNumber()) {
-                alert(translations[currentLang].formWhatsappInvalid);
-                return;
+            const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+            for (let link of mobileMenuLinks) {
+                link.addEventListener('click', () => {
+                     mobileMenu.classList.add('hidden');
+                });
             }
 
-            const submittingText = translations[currentLang].formSubmitting;
-
-            submitButton.disabled = true;
-            buttonText.innerText = submittingText;
-            loadingSpinner.classList.remove('hidden');
-
-            const formData = new FormData(contactForm);
-            const data = {};
-            formData.forEach((value, key) => {
-                if (key !== 'whatsapp_temp') { // Ignora o campo temporário
-                    data[key] = value;
+            // Lógica de tradução
+            const translations = {
+                'pt-BR': {
+                    navServices: 'Serviços',
+                    navProcess: 'Processo',
+                    navContact: 'Contato',
+                    navServicesMobile: 'Serviços',
+                    navProcessMobile: 'Processo',
+                    navContactMobile: 'Contato',
+                    ctaButtonMobile: 'Solicitar Auditoria',
+                    heroTitle: 'Auditoria de <span class="text-sky-500">Performance</span> e <span class="text-sky-500">Segurança</span> para Chatbots com IA',
+                    heroSubtitle: 'Otimize a experiência do seu cliente e proteja seus dados. Garantimos que seu chatbot no WhatsApp seja rápido, seguro e confiável.',
+                    heroButton: 'Receba uma Proposta',
+                    servicesTitle: 'O que sua empresa ganha?',
+                    servicesSubtitle: 'Nossas auditorias são projetadas para identificar pontos críticos e oportunidades de melhoria.',
+                    perfAuditTitle: 'Auditoria de Performance',
+                    perfAuditDesc: 'Analisamos a velocidade de resposta, a eficiência do fluxo de conversa, o consumo de recursos e a capacidade do seu chatbot de escalar. Identificamos gargalos que frustram seus clientes e impactam seus resultados.',
+                    secAuditTitle: 'Auditoria de Segurança',
+                    secAuditDesc: 'Verificamos vulnerabilidades, proteção de dados (LGPD), riscos de injeção de código e a robustez da autenticação. Proteja sua empresa e seus clientes contra ameaças e vazamento de informações sensíveis.',
+                    processTitle: 'Nosso Processo Simplificado',
+                    processSubtitle: 'Trabalhamos de forma transparente e eficiente.',
+                    processStep1Title: '1. Contato e Definição de Escopo',
+                    processStep1Desc: 'Entendemos suas necessidades, o volume de usuários e as funcionalidades do seu chatbot para definir os objetivos da auditoria.',
+                    processStep2Title: '2. Análise Técnica Profunda',
+                    processStep2Desc: 'Nossa equipe executa testes automatizados e manuais, simulando interações e ataques para coletar dados precisos sobre performance e segurança.',
+                    processStep3Title: '3. Relatório e Recomendações',
+                    processStep3Desc: 'Entregamos um relatório completo com os resultados, gráficos claros e um plano de ação prático para corrigir as falhas e otimizar seu chatbot.',
+                    contactTitle: 'Pronto para elevar o nível do seu chatbot?',
+                    contactSubtitle: 'Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma conversa.',
+                    formName: 'Nome',
+                    formNamePlaceholder: 'Seu nome completo',
+                    formEmail: 'Email',
+                    formEmailPlaceholder: 'seu@email.com',
+                    formWhatsapp: 'WhatsApp',
+                    formWhatsappInvalid: 'Por favor, insira um número de WhatsApp válido.',
+                    formRole: 'Função na Empresa',
+                    formRolePlaceholder: 'Ex: Gerente de TI, CEO',
+                    formCompany: 'Empresa',
+                    formCompanyPlaceholder: 'Nome da sua empresa',
+                    formMessage: 'Mensagem (opcional)',
+                    formMessagePlaceholder: 'Fale um pouco sobre seu chatbot ou suas necessidades...',
+                    formSecure: 'Suas informações estão seguras conosco.',
+                    formSubmit: 'Enviar Solicitação',
+                    formSubmitting: 'Enviando...',
+                    footerRights: '&copy; 2025 auditIA | 2BX Soluções Inteligentes. Todos os direitos reservados.',
+                    footerSlogan: 'Construindo chatbots mais seguros e eficientes.',
+                    successTitle: 'Solicitação Enviada!',
+                    successSubtitle: 'Obrigado pelo seu interesse. Recebemos suas informações e nossa equipe entrará em contato em breve.'
+                },
+                'en': {
+                    navServices: 'Services',
+                    navProcess: 'Process',
+                    navContact: 'Contact',
+                    navServicesMobile: 'Services',
+                    navProcessMobile: 'Process',
+                    navContactMobile: 'Contact',
+                    ctaButtonMobile: 'Request Audit',
+                    heroTitle: '<span class="text-sky-500">Performance</span> and <span class="text-sky-500">Security</span> Audits for AI Chatbots',
+                    heroSubtitle: 'Optimize your customer experience and protect your data. We ensure your WhatsApp chatbot is fast, secure, and reliable.',
+                    heroButton: 'Get a Proposal',
+                    servicesTitle: 'What does your company gain?',
+                    servicesSubtitle: 'Our audits are designed to identify critical points and improvement opportunities.',
+                    perfAuditTitle: 'Performance Audit',
+                    perfAuditDesc: 'We analyze response speed, conversation flow efficiency, resource consumption, and your chatbot\'s ability to scale. We identify bottlenecks that frustrate your customers and impact your results.',
+                    secAuditTitle: 'Security Audit',
+                    secAuditDesc: 'We check for vulnerabilities, data protection (like GDPR/LGPD), code injection risks, and authentication robustness. Protect your company and your customers from threats and sensitive data leaks.',
+                    processTitle: 'Our Simplified Process',
+                    processSubtitle: 'We work transparently and efficiently.',
+                    processStep1Title: '1. Contact & Scope Definition',
+                    processStep1Desc: 'We understand your needs, user volume, and chatbot features to define the audit objectives.',
+                    processStep2Title: '2. In-depth Technical Analysis',
+                    processStep2Desc: 'Our team performs automated and manual tests, simulating interactions and attacks to collect accurate performance and security data.',
+                    processStep3Title: '3. Report & Recommendations',
+                    processStep3Desc: 'We deliver a complete report with findings, clear charts, and a practical action plan to fix flaws and optimize your chatbot.',
+                    contactTitle: 'Ready to level up your chatbot?',
+                    contactSubtitle: 'Fill out the form below, and our team will contact you to schedule a conversation.',
+                    formName: 'Name',
+                    formNamePlaceholder: 'Your full name',
+                    formEmail: 'Email',
+                    formEmailPlaceholder: 'your@email.com',
+                    formWhatsapp: 'WhatsApp',
+                    formWhatsappInvalid: 'Please enter a valid WhatsApp number.',
+                    formRole: 'Role in Company',
+                    formRolePlaceholder: 'e.g., IT Manager, CEO',
+                    formCompany: 'Company',
+                    formCompanyPlaceholder: 'Your company name',
+                    formMessage: 'Message (optional)',
+                    formMessagePlaceholder: 'Tell us a bit about your chatbot or your needs...',
+                    formSecure: 'Your information is safe with us.',
+                    formSubmit: 'Send Request',
+                    formSubmitting: 'Sending...',
+                    footerRights: '&copy; 2025 auditIA | 2BX Intelligent Solutions. All rights reserved.',
+                    footerSlogan: 'Building safer and more efficient chatbots.',
+                    successTitle: 'Request Sent!',
+                    successSubtitle: 'Thank you for your interest. We have received your information and our team will be in touch shortly.'
+                },
+                'es': {
+                    navServices: 'Servicios',
+                    navProcess: 'Proceso',
+                    navContact: 'Contacto',
+                    navServicesMobile: 'Servicios',
+                    navProcessMobile: 'Proceso',
+                    navContactMobile: 'Contacto',
+                    ctaButtonMobile: 'Solicitar Auditoría',
+                    heroTitle: 'Auditoría de <span class="text-sky-500">Rendimiento</span> y <span class="text-sky-500">Seguridad</span> para Chatbots con IA',
+                    heroSubtitle: 'Optimice la experiencia de su cliente y proteja sus datos. Garantizamos que su chatbot de WhatsApp sea rápido, seguro y confiable.',
+                    heroButton: 'Recibir una Propuesta',
+                    servicesTitle: '¿Qué gana su empresa?',
+                    servicesSubtitle: 'Nuestras auditorías están diseñadas para identificar puntos críticos y oportunidades de mejora.',
+                    perfAuditTitle: 'Auditoría de Rendimiento',
+                    perfAuditDesc: 'Analizamos la velocidad de respuesta, la eficiencia del flujo de conversación, el consumo de recursos y la capacidad de su chatbot para escalar. Identificamos cuellos de botella que frustran a sus clientes e impactan sus resultados.',
+                    secAuditTitle: 'Auditoría de Seguridad',
+                    secAuditDesc: 'Verificamos vulnerabilidades, protección de datos (como RGPD/LGPD), riesgos de inyección de código y la robustez de la autenticación. Proteja a su empresa y a sus clientes contra amenazas y fugas de información sensible.',
+                    processTitle: 'Nuestro Proceso Simplificado',
+                    processSubtitle: 'Trabajamos de forma transparente y eficiente.',
+                    processStep1Title: '1. Contacto y Definición del Alcance',
+                    processStep1Desc: 'Entendemos sus necesidades, el volumen de usuarios y las funcionalidades de su chatbot para definir los objetivos de la auditoría.',
+                    processStep2Title: '2. Análisis Técnico Profundo',
+                    processStep2Desc: 'Nuestro equipo realiza pruebas automatizadas y manuales, simulando interacciones y ataques para recopilar datos precisos sobre rendimiento y seguridad.',
+                    processStep3Title: '3. Informe y Recomendaciones',
+                    processStep3Desc: 'Entregamos un informe completo con los hallazgos, gráficos claros y un plan de acción práctico para corregir las fallas y optimizar su chatbot.',
+                    contactTitle: '¿Listo para elevar el nivel de su chatbot?',
+                    contactSubtitle: 'Complete el siguiente formulario y nuestro equipo se pondrá en contacto para programar una conversación.',
+                    formName: 'Nombre',
+                    formNamePlaceholder: 'Su nombre completo',
+                    formEmail: 'Correo Electrónico',
+                    formEmailPlaceholder: 'su@email.com',
+                    formWhatsapp: 'WhatsApp',
+                    formWhatsappInvalid: 'Por favor, ingrese un número de WhatsApp válido.',
+                    formRole: 'Cargo en la Empresa',
+                    formRolePlaceholder: 'Ej: Gerente de TI, CEO',
+                    formCompany: 'Empresa',
+                    formCompanyPlaceholder: 'Nombre de su empresa',
+                    formMessage: 'Mensaje (opcional)',
+                    formMessagePlaceholder: 'Cuéntenos un poco sobre su chatbot o sus necesidades...',
+                    formSecure: 'Su información está segura con nosotros.',
+                    formSubmit: 'Enviar Solicitud',
+                    formSubmitting: 'Enviando...',
+                    footerRights: '&copy; 2025 auditIA | 2BX Soluciones Inteligentes. Todos los derechos reservados.',
+                    footerSlogan: 'Construyendo chatbots más seguros y eficientes.',
+                    successTitle: '¡Solicitud Enviada!',
+                    successSubtitle: 'Gracias por su interés. Hemos recibido su información y nuestro equipo se pondrá en contacto en breve.'
                 }
-            });
-            
-            // Adiciona o número completo formatado
-            data['whatsapp'] = iti.getNumber();
+            };
 
-            const url = 'https://mariano-n8n.upvngi.easypanel.host/webhook/form';
+            const langSelector = document.getElementById('lang-selector');
+            const headerLangButtons = langSelector.querySelectorAll('.lang-btn');
+            const modalLangButtons = document.querySelectorAll('.modal-lang-btn');
+            const languageModal = document.getElementById('language-modal');
+            const pageWrapper = document.getElementById('page-wrapper');
 
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
+            const setLanguage = (lang) => {
+                document.documentElement.lang = lang;
+                const translation = translations[lang];
+                document.querySelectorAll('[data-lang]').forEach(el => {
+                    const key = el.dataset.lang;
+                    if (translation[key]) {
+                        el.innerHTML = translation[key];
+                    }
+                });
+                document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
+                    const key = el.dataset.langPlaceholder;
+                    if (translation[key]) {
+                        el.placeholder = translation[key];
+                    }
                 });
 
-                if (response.ok) {
-                    mainContent.classList.add('hidden');
-                    successMessage.classList.remove('hidden');
-                    lucide.createIcons(); 
-                } else {
-                    throw new Error('Houve um problema ao enviar sua solicitação.');
+                // Atualiza o estado ativo da bandeira no cabeçalho
+                headerLangButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.langCode === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+            };
+            
+            const selectInitialLanguage = (lang) => {
+                setLanguage(lang);
+                languageModal.classList.add('hidden');
+                pageWrapper.classList.remove('hidden');
+            };
+
+            modalLangButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const lang = e.currentTarget.dataset.langCode;
+                    selectInitialLanguage(lang);
+                });
+            });
+
+            headerLangButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const lang = e.currentTarget.dataset.langCode;
+                    setLanguage(lang);
+                });
+            });
+
+            
+            // Lógica do campo de telefone
+            const whatsappInput = document.querySelector("#whatsapp");
+            const iti = window.intlTelInput(whatsappInput, {
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
+                initialCountry: "auto",
+                geoIpLookup: callback => {
+                    fetch("https://ipapi.co/json")
+                        .then(res => res.json())
+                        .then(data => callback(data.country_code))
+                        .catch(() => callback("us"));
+                },
+                separateDialCode: true,
+            });
+
+            // Lógica do formulário de contato
+            const contactForm = document.getElementById('contact-form');
+            const submitButton = document.getElementById('submit-button');
+            const buttonText = document.getElementById('button-text');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const mainContent = document.getElementById('main-content');
+            const successMessage = document.getElementById('success-message');
+
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault(); 
+                
+                const currentLang = document.documentElement.lang || 'pt-BR';
+                
+                // Validação do número de telefone
+                if (!iti.isValidNumber()) {
+                    alert(translations[currentLang].formWhatsappInvalid);
+                    return;
                 }
 
-            } catch (error) {
-                console.error('Erro no envio do formulário:', error);
-                alert('Ocorreu um erro. Por favor, tente novamente mais tarde.');
-                const originalSubmitText = translations[currentLang].formSubmit;
-                submitButton.disabled = false;
-                buttonText.innerText = originalSubmitText;
-                loadingSpinner.classList.add('hidden');
-            }
-        });
+                const submittingText = translations[currentLang].formSubmitting;
 
-        // Lógica para animação de scroll
-        const faders = document.querySelectorAll('.fade-in-section');
-        const appearOptions = {
-            threshold: 0.2,
-            rootMargin: "0px 0px -50px 0px"
-        };
+                submitButton.disabled = true;
+                buttonText.innerText = submittingText;
+                loadingSpinner.classList.remove('hidden');
 
-        const appearOnScroll = new IntersectionObserver(function(
-            entries,
-            appearOnScroll
-        ) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add("is-visible");
-                    appearOnScroll.unobserve(entry.target);
+                const formData = new FormData(contactForm);
+                const data = {};
+                formData.forEach((value, key) => {
+                    if (key !== 'whatsapp_temp') { // Ignora o campo temporário
+                        data[key] = value;
+                    }
+                });
+                
+                // Adiciona o número completo formatado
+                data['whatsapp'] = iti.getNumber();
+
+                const url = 'https://mariano-n8n.upvngi.easypanel.host/webhook/form';
+
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    if (response.ok) {
+                        mainContent.classList.add('hidden');
+                        successMessage.classList.remove('hidden');
+                        lucide.createIcons(); 
+                    } else {
+                        throw new Error('Houve um problema ao enviar sua solicitação.');
+                    }
+
+                } catch (error) {
+                    console.error('Erro no envio do formulário:', error);
+                    alert('Ocorreu um erro. Por favor, tente novamente mais tarde.');
+                    const originalSubmitText = translations[currentLang].formSubmit;
+                    submitButton.disabled = false;
+                    buttonText.innerText = originalSubmitText;
+                    loadingSpinner.classList.add('hidden');
                 }
             });
-        }, appearOptions);
 
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
+            // Lógica para animação de scroll
+            const faders = document.querySelectorAll('.fade-in-section');
+            const appearOptions = {
+                threshold: 0.2,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(
+                entries,
+                appearOnScroll
+            ) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add("is-visible");
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
         });
     </script>
 </body>
