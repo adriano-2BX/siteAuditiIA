@@ -41,7 +41,7 @@
         /* Fundo sutil para a seção Hero */
         .hero-background {
             background-color: #f8fafc; /* Cor de fundo slate-50 */
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cbd5e1' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         /* Estilo para bandeira ativa */
         .lang-btn.active {
@@ -67,6 +67,22 @@
             border-color: #0ea5e9;
             box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.5);
             outline: none;
+        }
+        /* Detalhe visual para títulos de seção */
+        .section-title span {
+            position: relative;
+            padding-bottom: 8px;
+        }
+        .section-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #0ea5e9; /* sky-500 */
+            border-radius: 3px;
         }
     </style>
 </head>
@@ -161,13 +177,13 @@
                 <!-- Services Section -->
                 <section id="servicos" class="py-20 px-6 bg-slate-50">
                     <div class="container mx-auto">
-                        <div class="text-center mb-12 fade-in-section">
-                            <h3 data-lang="servicesTitle" class="text-3xl md:text-4xl font-bold text-slate-900">O que sua empresa ganha?</h3>
-                            <p data-lang="servicesSubtitle" class="mt-4 max-w-2xl mx-auto text-slate-600">Nossas auditorias são projetadas para identificar pontos críticos e oportunidades de melhoria.</p>
+                        <div class="text-center mb-16 fade-in-section">
+                            <h3 data-lang="servicesTitle" class="section-title text-3xl md:text-4xl font-bold text-slate-900"><span>O que sua empresa ganha?</span></h3>
+                            <p data-lang="servicesSubtitle" class="mt-10 max-w-2xl mx-auto text-slate-600">Nossas auditorias são projetadas para identificar pontos críticos e oportunidades de melhoria.</p>
                         </div>
                         <div class="grid md:grid-cols-2 gap-8">
                             <!-- Service Card 1 -->
-                            <div class="bg-white p-8 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 fade-in-section">
+                            <div class="bg-white p-8 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 fade-in-section border-t-4 border-t-sky-500">
                                 <div class="flex items-center gap-4 mb-4">
                                      <div class="bg-sky-500/10 p-3 rounded-lg">
                                          <i data-lucide="zap" class="h-8 w-8 text-sky-500"></i>
@@ -177,7 +193,7 @@
                                 <p data-lang="perfAuditDesc" class="text-slate-600">Analisamos a velocidade de resposta, a eficiência do fluxo de conversa, o consumo de recursos e a capacidade do seu chatbot de escalar. Identificamos gargalos que frustram seus clientes e impactam seus resultados.</p>
                             </div>
                             <!-- Service Card 2 -->
-                            <div class="bg-white p-8 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 fade-in-section">
+                            <div class="bg-white p-8 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 fade-in-section border-t-4 border-t-teal-500">
                                 <div class="flex items-center gap-4 mb-4">
                                     <div class="bg-teal-500/10 p-3 rounded-lg">
                                         <i data-lucide="shield-check" class="h-8 w-8 text-teal-500"></i>
@@ -193,9 +209,9 @@
                 <!-- Process Section -->
                 <section id="processo" class="py-20 px-6">
                     <div class="container mx-auto">
-                        <div class="text-center mb-16 fade-in-section">
-                            <h3 data-lang="processTitle" class="text-3xl md:text-4xl font-bold text-slate-900">Nosso Processo Simplificado</h3>
-                            <p data-lang="processSubtitle" class="mt-4 max-w-2xl mx-auto text-slate-600">Trabalhamos de forma transparente e eficiente.</p>
+                        <div class="text-center mb-20 fade-in-section">
+                            <h3 data-lang="processTitle" class="section-title text-3xl md:text-4xl font-bold text-slate-900"><span>Nosso Processo Simplificado</span></h3>
+                            <p data-lang="processSubtitle" class="mt-10 max-w-2xl mx-auto text-slate-600">Trabalhamos de forma transparente e eficiente.</p>
                         </div>
                         <div class="relative">
                             <!-- Linha do tempo -->
@@ -270,9 +286,9 @@
                 <!-- Contact Section -->
                 <section id="contato" class="py-20 px-6 bg-slate-50">
                     <div class="container mx-auto max-w-3xl fade-in-section">
-                        <div class="text-center mb-12">
-                            <h3 data-lang="contactTitle" class="text-3xl md:text-4xl font-bold text-slate-900">Pronto para elevar o nível do seu chatbot?</h3>
-                            <p data-lang="contactSubtitle" class="mt-4 text-slate-600">Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma conversa.</p>
+                        <div class="text-center mb-16">
+                            <h3 data-lang="contactTitle" class="section-title text-3xl md:text-4xl font-bold text-slate-900"><span>Pronto para elevar o nível do seu chatbot?</span></h3>
+                            <p data-lang="contactSubtitle" class="mt-10 max-w-2xl mx-auto text-slate-600">Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma conversa.</p>
                         </div>
                         <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-xl">
                             <form id="contact-form" novalidate>
@@ -319,8 +335,8 @@
             </main>
 
             <!-- Footer -->
-            <footer class="bg-slate-50 border-t border-gray-200">
-                <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <footer class="bg-white border-t border-gray-200">
+                <div class="container mx-auto px-6 py-10 text-center text-slate-500">
                     <h3 class="text-xl font-bold text-slate-900 mb-2">
                         audit<span class="text-sky-500">IA</span>
                     </h3>
@@ -378,13 +394,13 @@
                     heroTitle: 'Auditoria de <span class="text-sky-500">Performance</span> e <span class="text-sky-500">Segurança</span> para Chatbots com IA',
                     heroSubtitle: 'Otimize a experiência do seu cliente e proteja seus dados. Garantimos que seu chatbot no WhatsApp seja rápido, seguro e confiável.',
                     heroButton: 'Receba uma Proposta',
-                    servicesTitle: 'O que sua empresa ganha?',
+                    servicesTitle: '<span>O que sua empresa ganha?</span>',
                     servicesSubtitle: 'Nossas auditorias são projetadas para identificar pontos críticos e oportunidades de melhoria.',
                     perfAuditTitle: 'Auditoria de Performance',
                     perfAuditDesc: 'Analisamos a velocidade de resposta, a eficiência do fluxo de conversa, o consumo de recursos e a capacidade do seu chatbot de escalar. Identificamos gargalos que frustram seus clientes e impactam seus resultados.',
                     secAuditTitle: 'Auditoria de Segurança',
                     secAuditDesc: 'Verificamos vulnerabilidades, proteção de dados (LGPD), riscos de injeção de código e a robustez da autenticação. Proteja sua empresa e seus clientes contra ameaças e vazamento de informações sensíveis.',
-                    processTitle: 'Nosso Processo Simplificado',
+                    processTitle: '<span>Nosso Processo Simplificado</span>',
                     processSubtitle: 'Trabalhamos de forma transparente e eficiente.',
                     processStep1Title: '1. Contato e Definição de Escopo',
                     processStep1Desc: 'Entendemos suas necessidades, o volume de usuários e as funcionalidades do seu chatbot para definir os objetivos da auditoria.',
@@ -392,7 +408,7 @@
                     processStep2Desc: 'Nossa equipe executa testes automatizados e manuais, simulando interações e ataques para coletar dados precisos sobre performance e segurança.',
                     processStep3Title: '3. Relatório e Recomendações',
                     processStep3Desc: 'Entregamos um relatório completo com os resultados, gráficos claros e um plano de ação prático para corrigir as falhas e otimizar seu chatbot.',
-                    contactTitle: 'Pronto para elevar o nível do seu chatbot?',
+                    contactTitle: '<span>Pronto para elevar o nível do seu chatbot?</span>',
                     contactSubtitle: 'Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma conversa.',
                     formName: 'Nome',
                     formNamePlaceholder: 'Seu nome completo',
@@ -425,13 +441,13 @@
                     heroTitle: '<span class="text-sky-500">Performance</span> and <span class="text-sky-500">Security</span> Audits for AI Chatbots',
                     heroSubtitle: 'Optimize your customer experience and protect your data. We ensure your WhatsApp chatbot is fast, secure, and reliable.',
                     heroButton: 'Get a Proposal',
-                    servicesTitle: 'What does your company gain?',
+                    servicesTitle: '<span>What does your company gain?</span>',
                     servicesSubtitle: 'Our audits are designed to identify critical points and improvement opportunities.',
                     perfAuditTitle: 'Performance Audit',
                     perfAuditDesc: 'We analyze response speed, conversation flow efficiency, resource consumption, and your chatbot\'s ability to scale. We identify bottlenecks that frustrate your customers and impact your results.',
                     secAuditTitle: 'Security Audit',
                     secAuditDesc: 'We check for vulnerabilities, data protection (like GDPR/LGPD), code injection risks, and authentication robustness. Protect your company and your customers from threats and sensitive data leaks.',
-                    processTitle: 'Our Simplified Process',
+                    processTitle: '<span>Our Simplified Process</span>',
                     processSubtitle: 'We work transparently and efficiently.',
                     processStep1Title: '1. Contact & Scope Definition',
                     processStep1Desc: 'We understand your needs, user volume, and chatbot features to define the audit objectives.',
@@ -439,7 +455,7 @@
                     processStep2Desc: 'Our team performs automated and manual tests, simulating interactions and attacks to collect accurate performance and security data.',
                     processStep3Title: '3. Report & Recommendations',
                     processStep3Desc: 'We deliver a complete report with findings, clear charts, and a practical action plan to fix flaws and optimize your chatbot.',
-                    contactTitle: 'Ready to level up your chatbot?',
+                    contactTitle: '<span>Ready to level up your chatbot?</span>',
                     contactSubtitle: 'Fill out the form below, and our team will contact you to schedule a conversation.',
                     formName: 'Name',
                     formNamePlaceholder: 'Your full name',
@@ -472,13 +488,13 @@
                     heroTitle: 'Auditoría de <span class="text-sky-500">Rendimiento</span> y <span class="text-sky-500">Seguridad</span> para Chatbots con IA',
                     heroSubtitle: 'Optimice la experiencia de su cliente y proteja sus datos. Garantizamos que su chatbot de WhatsApp sea rápido, seguro y confiable.',
                     heroButton: 'Recibir una Propuesta',
-                    servicesTitle: '¿Qué gana su empresa?',
+                    servicesTitle: '<span>¿Qué gana su empresa?</span>',
                     servicesSubtitle: 'Nuestras auditorías están diseñadas para identificar puntos críticos y oportunidades de mejora.',
                     perfAuditTitle: 'Auditoría de Rendimiento',
                     perfAuditDesc: 'Analizamos la velocidad de respuesta, la eficiencia del flujo de conversación, el consumo de recursos y la capacidad de su chatbot para escalar. Identificamos cuellos de botella que frustran a sus clientes e impactan sus resultados.',
                     secAuditTitle: 'Auditoría de Seguridad',
                     secAuditDesc: 'Verificamos vulnerabilidades, protección de datos (como RGPD/LGPD), riesgos de inyección de código y la robustez de la autenticación. Proteja a su empresa y a sus clientes contra amenazas y fugas de información sensible.',
-                    processTitle: 'Nuestro Proceso Simplificado',
+                    processTitle: '<span>Nuestro Proceso Simplificado</span>',
                     processSubtitle: 'Trabajamos de forma transparente y eficiente.',
                     processStep1Title: '1. Contacto y Definición del Alcance',
                     processStep1Desc: 'Entendemos sus necesidades, el volumen de usuarios y las funcionalidades de su chatbot para definir los objetivos de la auditoría.',
@@ -486,7 +502,7 @@
                     processStep2Desc: 'Nuestro equipo realiza pruebas automatizadas y manuales, simulando interacciones y ataques para recopilar datos precisos sobre rendimiento y seguridad.',
                     processStep3Title: '3. Informe y Recomendaciones',
                     processStep3Desc: 'Entregamos un informe completo con los hallazgos, gráficos claros y un plan de acción práctico para corregir las fallas y optimizar su chatbot.',
-                    contactTitle: '¿Listo para elevar el nivel de su chatbot?',
+                    contactTitle: '<span>¿Listo para elevar el nivel de su chatbot?</span>',
                     contactSubtitle: 'Complete el siguiente formulario y nuestro equipo se pondrá en contacto para programar una conversación.',
                     formName: 'Nombre',
                     formNamePlaceholder: 'Su nombre completo',
