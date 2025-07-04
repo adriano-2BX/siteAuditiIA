@@ -90,23 +90,23 @@
 
     <!-- Language Selection Modal -->
     <div id="language-modal" class="fixed inset-0 z-50 flex items-center justify-center hero-background p-4">
-        <div class="text-center p-8 max-w-4xl mx-auto">
+        <div class="text-center p-4 sm:p-8 max-w-4xl w-full mx-auto">
             <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
                 audit<span class="text-sky-500">IA</span>
             </h1>
             <h2 class="text-xl md:text-2xl font-semibold text-slate-800 mb-2">Selecione seu idioma</h2>
             <h3 class="text-lg md:text-xl text-slate-600 mb-10">Select your language / Seleccione su idioma</h3>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-8">
-                <button class="modal-lang-btn w-full sm:w-auto bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2" data-lang-code="pt-BR">
-                    <svg class="rounded-md mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="120" height="80"><path fill="#009639" d="M0 0h9v6H0z"/><path fill="#fedf00" d="m4.5 1.2-2.7 1.8 2.7 1.8 2.7-1.8z"/><path fill="#002776" d="M4.5 3a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>
+            <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-6 sm:gap-8">
+                <button class="modal-lang-btn w-full sm:w-auto bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col items-center justify-center" data-lang-code="pt-BR">
+                    <svg class="rounded-md w-28 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="#009639" d="M0 0h9v6H0z"/><path fill="#fedf00" d="m4.5 1.2-2.7 1.8 2.7 1.8 2.7-1.8z"/><path fill="#002776" d="M4.5 3a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>
                     <span class="mt-4 block font-semibold text-slate-800">Português</span>
                 </button>
-                <button class="modal-lang-btn w-full sm:w-auto bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2" data-lang-code="en">
-                    <svg class="rounded-md mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="120" height="80"><path fill="#B22234" d="M0 0h9v6H0z"/><path fill="#fff" d="M0 1h9v1H0zm0 2h9v1H0zM0 4h9v1H0z"/><path fill="#3C3B6E" d="M0 0h4v3H0z"/><g fill="#fff"><path d="M.4 1.2.2.8l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zM.8.6l-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zM.4 1.8.2 1.4l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zM.8 1.2l-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zM.4 2.4.2 2l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4z"/></g></svg>
+                <button class="modal-lang-btn w-full sm:w-auto bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col items-center justify-center" data-lang-code="en">
+                    <svg class="rounded-md w-28 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="#B22234" d="M0 0h9v6H0z"/><path fill="#fff" d="M0 1h9v1H0zm0 2h9v1H0zM0 4h9v1H0z"/><path fill="#3C3B6E" d="M0 0h4v3H0z"/><g fill="#fff"><path d="M.4 1.2.2.8l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zM.8.6l-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zM.4 1.8.2 1.4l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zM.8 1.2l-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zm.8 0-.2.4.4 0 .2-.4zM.4 2.4.2 2l-.2.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4zm.8 0 .2-.4-.2-.4h.4z"/></g></svg>
                     <span class="mt-4 block font-semibold text-slate-800">English</span>
                 </button>
-                <button class="modal-lang-btn w-full sm:w-auto bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2" data-lang-code="es">
-                    <svg class="rounded-md mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="120" height="80"><path fill="#C60B1E" d="M0 0h9v6H0z"/><path fill="#FFC400" d="M0 1.5h9v3H0z"/></svg>
+                <button class="modal-lang-btn w-full sm:w-auto bg-white p-6 rounded-xl border border-gray-200 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col items-center justify-center" data-lang-code="es">
+                    <svg class="rounded-md w-28 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6"><path fill="#C60B1E" d="M0 0h9v6H0z"/><path fill="#FFC400" d="M0 1.5h9v3H0z"/></svg>
                     <span class="mt-4 block font-semibold text-slate-800">Español</span>
                 </button>
             </div>
@@ -158,7 +158,7 @@
 
             <main>
                 <!-- Hero Section -->
-                <section id="home" class="hero-background text-center px-6 pt-44 pb-20 md:pt-56 md:pb-32">
+                <section id="home" class="hero-background text-center px-6 pt-44 pb-20 md:pt-56 md:pb-32 relative">
                     <div class="container mx-auto fade-in-section">
                         <h2 data-lang="heroTitle" class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
                             Auditoria de <span class="text-sky-500">Performance</span> e <span class="text-sky-500">Segurança</span> para Chatbots com IA
@@ -172,10 +172,15 @@
                             </a>
                         </div>
                     </div>
+                    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none" style="height: 80px;">
+                        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-full">
+                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-current text-white"></path>
+                        </svg>
+                    </div>
                 </section>
 
                 <!-- Services Section -->
-                <section id="servicos" class="py-20 px-6 bg-slate-50">
+                <section id="servicos" class="py-20 px-6 bg-white">
                     <div class="container mx-auto">
                         <div class="text-center mb-16 fade-in-section">
                             <h3 data-lang="servicesTitle" class="section-title text-3xl md:text-4xl font-bold text-slate-900"><span>O que sua empresa ganha?</span></h3>
@@ -207,7 +212,7 @@
                 </section>
 
                 <!-- Process Section -->
-                <section id="processo" class="py-20 px-6">
+                <section id="processo" class="py-20 px-6 bg-slate-50">
                     <div class="container mx-auto">
                         <div class="text-center mb-20 fade-in-section">
                             <h3 data-lang="processTitle" class="section-title text-3xl md:text-4xl font-bold text-slate-900"><span>Nosso Processo Simplificado</span></h3>
@@ -335,13 +340,18 @@
             </main>
 
             <!-- Footer -->
-            <footer class="bg-white border-t border-gray-200">
-                <div class="container mx-auto px-6 py-10 text-center text-slate-500">
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">
-                        audit<span class="text-sky-500">IA</span>
+            <footer class="bg-slate-800 text-slate-300">
+                <div class="container mx-auto px-6 py-10 text-center">
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        audit<span class="text-sky-400">IA</span>
                     </h3>
+                    <div class="mt-6 mb-8 flex justify-center gap-6">
+                        <a href="#" class="text-slate-400 hover:text-sky-400 transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-sky-400 transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-sky-400 transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                    </div>
                     <p data-lang="footerRights">&copy; 2025 auditIA | 2BX Soluções Inteligentes. Todos os direitos reservados.</p>
-                    <p data-lang="footerSlogan" class="text-sm mt-1">Construindo chatbots mais seguros e eficientes.</p>
+                    <p data-lang="footerSlogan" class="text-sm mt-1 text-slate-400">Construindo chatbots mais seguros e eficientes.</p>
                 </div>
             </footer>
         </div>
