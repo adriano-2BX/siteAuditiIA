@@ -38,11 +38,6 @@
         .glow-on-hover {
             box-shadow: 0 0 5px #0ea5e9, 0 0 10px #0ea5e9;
         }
-        /* Fundo sutil para a seção Hero */
-        .hero-background {
-            background-color: #f8fafc; /* Cor de fundo slate-50 */
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
         /* Estilo para bandeira ativa */
         .lang-btn.active {
             transform: scale(1.1);
@@ -133,7 +128,7 @@
 
             <main>
                 <!-- Hero Section -->
-                <section id="home" class="hero-background text-center px-6 pt-44 pb-20 md:pt-56 md:pb-32 relative">
+                <section id="home" class="text-center px-6 pt-44 pb-20 md:pt-56 md:pb-32 relative bg-gradient-to-b from-white to-slate-50">
                     <div class="container mx-auto fade-in-section">
                         <h2 data-lang="heroTitle" class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
                             Auditoria de <span class="text-sky-500">Performance</span> e <span class="text-sky-500">Segurança</span> para Chatbots com IA
@@ -147,15 +142,10 @@
                             </a>
                         </div>
                     </div>
-                    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none" style="height: 80px;">
-                        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-full">
-                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-current text-white"></path>
-                        </svg>
-                    </div>
                 </section>
 
                 <!-- Services Section -->
-                <section id="servicos" class="py-20 px-6 bg-white">
+                <section id="servicos" class="py-20 px-6 bg-slate-50">
                     <div class="container mx-auto">
                         <div class="text-center mb-16 fade-in-section">
                             <h3 data-lang="servicesTitle" class="section-title text-3xl md:text-4xl font-bold text-slate-900"><span>O que sua empresa ganha?</span></h3>
@@ -187,7 +177,7 @@
                 </section>
 
                 <!-- Process Section -->
-                <section id="processo" class="py-20 px-6 bg-slate-50">
+                <section id="processo" class="py-20 px-6 bg-white">
                     <div class="container mx-auto">
                         <div class="text-center mb-20 fade-in-section">
                             <h3 data-lang="processTitle" class="section-title text-3xl md:text-4xl font-bold text-slate-900"><span>Nosso Processo Simplificado</span></h3>
@@ -479,7 +469,7 @@
                     processStep1Title: '1. Contacto y Definición del Alcance',
                     processStep1Desc: 'Entendemos sus necesidades, el volumen de usuarios y las funcionalidades de su chatbot para definir los objetivos de la auditoría.',
                     processStep2Title: '2. Análisis Técnico Profundo',
-                    processStep2Desc: 'Nuestro equipo realiza pruebas automatizadas y manuales, simulando interacciones y ataques para recopilar datos precisos sobre rendimiento y seguridad.',
+                    processStep2Desc: 'Nuestro equipo realiza pruebas automatizadas y manuales, simulando interações y ataques para recopilar datos precisos sobre rendimiento y seguridad.',
                     processStep3Title: '3. Informe y Recomendaciones',
                     processStep3Desc: 'Entregamos un informe completo con los hallazgos, gráficos claros y un plan de acción práctico para corregir las fallas y optimizar su chatbot.',
                     contactTitle: '<span>¿Listo para elevar el nivel de su chatbot?</span>',
